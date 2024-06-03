@@ -1,0 +1,46 @@
+// LoginForm.scss
+.login-form {
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 10px 20px 20px;
+  width: 350px;
+  height: 350px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.close-button {
+  position: absolute;
+  right: 10px;
+  top: 0; // Move it to the very top
+  width: 30px;
+  background: none !important; // Remove the background
+}
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 30px; // Увеличен отступ под заголовком
+  padding-bottom: 40px;
+}
+
+.login-form form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login-form input {
+  margin-bottom: 20px; // Увеличен отступ под полями ввода
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #000;
+}
+
+.login-form button {
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}

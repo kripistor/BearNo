@@ -1,0 +1,53 @@
+
+.user-products .ant-card .ant-card-cover img {
+  width: 100px;
+  height: 200px;
+  object-fit: cover;
+  padding-top: 10px;
+  display: block;
+  margin: auto;
+}
+
+.add-product-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.user-products {
+  padding: 2vh 7vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.user-products .ant-card p {
+  text-align: center;
+}
+
+.user-products .ant-card {
+  width: calc(100% - 20px); /* For mobile devices */
+  margin: 10px;
+}
+
+/* For tablets */
+@media screen and (min-width: 668px) and (max-width: 895px) {
+  .user-products .ant-card {
+    width: calc(50% - 20px);
+  }
+}
+
+/* For small desktops */
+@media screen and (min-width: 896px) and (max-width: 1449px) {
+  .user-products .ant-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+/* For large desktops */
+@media screen and (min-width: 1450px) {
+  .user-products .ant-card {
+    width: calc(25% - 20px);
+  }
+}

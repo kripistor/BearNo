@@ -1,0 +1,45 @@
+.products-to-approve .ant-card .ant-card-cover img {
+  width: 100px;
+  height: 200px;
+  object-fit: cover;
+  padding-top: 10px;
+  display: block;
+  margin: auto;
+}
+
+.products-to-approve {
+  padding: 2vh 7vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.products-to-approve .ant-card p {
+  text-align: center;
+}
+
+.products-to-approve .ant-card {
+  width: calc(100% - 20px); /* For mobile devices */
+  margin: 10px;
+}
+
+/* For tablets */
+@media screen and (min-width: 668px) and (max-width: 895px) {
+  .products-to-approve .ant-card {
+    width: calc(50% - 20px);
+  }
+}
+
+/* For small desktops */
+@media screen and (min-width: 896px) and (max-width: 1449px) {
+  .products-to-approve .ant-card {
+    width: calc(33.33% - 20px);
+  }
+}
+
+/* For large desktops */
+@media screen and (min-width: 1450px) {
+  .products-to-approve .ant-card {
+    width: calc(25% - 20px);
+  }
+}

@@ -1,0 +1,86 @@
+.registration-section {
+  background-color: #1e1e1e;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2vh 7vw;
+  margin: 2vh 7vw;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    text-align: left;
+    padding: 0 20px;
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+}
+
+.title {
+  letter-spacing: 0.3px;
+  font: 600 40px/40px Inter, -apple-system, Roboto, Helvetica, sans-serif;
+  color: white;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+}
+
+.description {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0.3px;
+  margin-top: 29px;
+  color: white;
+
+  @media (max-width: 991px) {
+    max-width: 100%;
+  }
+}
+
+.registration-button {
+  font-family: Inter, sans-serif;
+  justify-content: center;
+  align-items: center;
+  border-radius: 80px;
+  border: 1px solid rgb(30, 30, 30);
+  background-color: white;
+  margin-top: 19px;
+  color: #1e1e1e;
+  font-weight: 500;
+  white-space: nowrap;
+  text-align: center;
+  line-height: 100%;
+  padding: 10px 60px;
+  cursor: pointer;
+  display: flex;
+
+  @media (max-width: 991px) {
+    width: 30vw;
+    height: 5vh;
+    text-align: center;
+    white-space: initial;
+    margin: auto;
+  }
+}
+
+.logo {
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  padding-left: 2vh;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+  }
+}
