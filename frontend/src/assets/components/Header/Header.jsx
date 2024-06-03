@@ -8,6 +8,7 @@ import Cookies from 'js-cookie';
 import {Link} from 'react-router-dom';
 import {jwtDecode} from 'jwt-decode';
 import {useNavigate} from 'react-router-dom';
+import UserService from "../../api/UserService.js";
 
 Modal.setAppElement('#root'); // This line is needed for accessibility reasons
 
@@ -15,6 +16,7 @@ export default function Header() {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
+
     useEffect(() => {
         const token = Cookies.get('access_token');
         setIsLoggedIn(!!token);
@@ -29,7 +31,11 @@ export default function Header() {
     const handleLoginClick = () => {
         setIsLoginOpen(true);
     };
-
+    const handleLogout = () => {
+        UserService.logout();
+        navigate('/'); // перенаправляем пользователя на страницу входа после выхода
+        window.location.reload()
+    };
     const handleCloseModal = (e) => {
         setIsLoginOpen(false);
         const token = Cookies.get('access_token');
@@ -61,6 +67,7 @@ export default function Header() {
 
     return (
         <div className="header-container">
+
             <Link to="/">
                 <img
                     src={logo}
@@ -74,10 +81,15 @@ export default function Header() {
             </div>
 
             {isLoggedIn ? (
-                <Link to="/profile" className="profile-link">Личный кабинет</Link>
+                <div className="auth-form">
+                    <Link to="/profile" className="login-button-container">Личный кабинет</Link>
+                </div>
+
             ) : (
                 <button className="login-button-container" onClick={handleLoginClick}>Войти</button>
-            )}
+
+            )
+            }
 
             <Modal
                 isOpen={isLoginOpen}
@@ -87,6 +99,7 @@ export default function Header() {
             >
                 <LoginForm onClose={handleCloseModal}/>
             </Modal>
+
         </div>
     );
 }

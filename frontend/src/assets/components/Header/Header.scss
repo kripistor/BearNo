@@ -74,8 +74,11 @@
     height: 2vh;
     color: rgba(168, 165, 163, 1);
 }
-
+.auth-form{
+    display: flex;
+}
 .login-button-container {
+    text-decoration: none;
     flex: 0 0 15vw;
     border-radius: 1.25vh;
     background: rgba(30, 30, 30, 1);
@@ -89,6 +92,22 @@
     padding-left: 2.3125vw;
     height: 5vh;
     width: 10vw;
+    text-align: center;;
+}
+.logout-button-container{;
+    border-radius: 1.25vh;
+    background: rgba(30, 30, 30, 1);
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding-right: 2.3125vw;
+    padding-left: 2.3125vw;
+    height: 5vh;
+    width: 10vw;
+
 }
 
 .login-heading-text-style {
