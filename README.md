@@ -8,4 +8,8 @@ docker compose up
 ```
 http://localhost:8000/
 ```
+или
+```
+https://bearno.kripistor.ru
+```
 Enjoy
