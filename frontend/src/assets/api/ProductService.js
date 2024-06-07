@@ -2,7 +2,7 @@ import axios from "axios";
 
 let serverPath = "";
 
-serverPath = "http://localhost:8000/api/v1"
+serverPath = "https://bearno.kripistor.ru/api/v1"
 
 export default class ProductService {
     static async getAllProducts() {

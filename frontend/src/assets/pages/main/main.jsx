@@ -16,22 +16,16 @@ class Main extends Component {
 
     componentDidMount() {
         ProductService.getAllProducts().then((data) => {
-            const promises = data.map(product => {
-                return ProductService.getProductImage(product.id).then(image => {
-                    product.img = image;
-                    return product;
-                });
-            });
+            // Фильтрация продуктов, чтобы показывать только одобренные
+            const approvedProducts = data.filter(product => product.is_approved == true);
 
-            Promise.all(promises).then(products => {
-                // Сортировка продуктов по рейтингу
-                const sortedProducts = products.sort((a, b) => b.rating - a.rating);
-                this.setState({products: sortedProducts});
+            // Сортировка продуктов по рейтингу
+            const sortedProducts = approvedProducts.sort((a, b) => b.rating - a.rating);
+            this.setState({products: sortedProducts});
 
-                // Сортировка продуктов по количеству голосов
-                const popularProducts = [...products].sort((a, b) => b.vote_count - a.vote_count);
-                this.setState({popularProducts: popularProducts});
-            });
+            // Сортировка продуктов по количеству голосов
+            const popularProducts = [...approvedProducts].sort((a, b) => b.vote_count - a.vote_count);
+            this.setState({popularProducts: popularProducts});
         }).catch((error) => {
             console.error("Error retrieving products: ", error);
         });

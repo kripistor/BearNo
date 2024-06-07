@@ -86,7 +86,7 @@ export default function AdminProfile() {
             const decodedToken = jwtDecode(token);
             setIsAdmin(decodedToken.is_admin);
         }
-        UserService.getUserProducts()
+        ProductService.getAllProducts()
             .then((userProducts) => {
                 const promises = userProducts.map(product => {
                     return ProductService.getProductImage(product.id).then(image => {

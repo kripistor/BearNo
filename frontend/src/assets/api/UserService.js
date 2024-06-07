@@ -4,7 +4,7 @@ import createAuthRefreshInterceptor from 'axios-auth-refresh';
 
 let serverPath = "";
 
-serverPath = "http://localhost:8000/api/v1"
+serverPath = "https://bearno.kripistor.ru/api/v1"
 // Функция, которая будет вызываться для обновления токена
 const refreshAuthLogic = failedRequest => axios.post(serverPath + `/users/refresh?refresh_token=${Cookies.get('refresh_token')}`, {})
     .then(tokenRefreshResponse => {

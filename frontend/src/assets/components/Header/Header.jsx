@@ -16,17 +16,24 @@ export default function Header() {
     const [isLoginOpen, setIsLoginOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
-
     useEffect(() => {
         const token = Cookies.get('access_token');
         setIsLoggedIn(!!token);
+    }, []);
+    const handleProfileClick = () => {
+        const token = Cookies.get('access_token');
         if (token) {
             const decodedToken = jwtDecode(token);
             if (decodedToken.is_admin) {
-                navigate('/admin'); // Используйте navigate вместо history.push
+                navigate('/admin');
+            } else {
+                navigate('/profile');
             }
+        } else {
+            // Если пользователь не авторизован, перенаправьте его на страницу входа или покажите сообщение об ошибке
+            navigate('/');
         }
-    }, []);
+    };
 
     const handleLoginClick = () => {
         setIsLoginOpen(true);
@@ -82,7 +89,8 @@ export default function Header() {
 
             {isLoggedIn ? (
                 <div className="auth-form">
-                    <Link to="/profile" className="login-button-container">Личный кабинет</Link>
+                    <button onClick={handleProfileClick} className="login-button-container">Личный кабинет</button>
+                    <button onClick={handleLogout} className="logout-button-container">Выйти</button>
                 </div>
 
             ) : (

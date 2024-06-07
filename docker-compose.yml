@@ -1,5 +1,6 @@
 version: "3.9"
 
+
 services:
   postgres:
     image: postgres:12
@@ -7,16 +8,16 @@ services:
     env_file:
       - .env
     healthcheck:
-      test: pg_isready -U postgres
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
       interval: 3s
       timeout: 2s
       retries: 3
+    ports:
+      - "5432:5432"
 
   backend:
     build:
       context: backend
-    ports:
-      - "8000:8000"
     env_file: .env
     volumes:
       - ./backend/avatars:/app/avatars
@@ -24,15 +25,11 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+
   auth-service:
     build:
       context: auth
-    ports:
-      - "8001:8001"
     env_file: .env
     depends_on:
       postgres:
         condition: service_healthy
-volumes:
-  app-db-data:
-  root-home:
